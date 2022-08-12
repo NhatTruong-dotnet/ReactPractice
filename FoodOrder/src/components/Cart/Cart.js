@@ -5,8 +5,12 @@ import Modal from '../UI/Modal'
 import styles from './Cart.module.css'
 export default function Cart(props) {
     const cartCtx = useContext(CartContext);
-    const CartItemRemoveHandler = (id) =>{};
-    const cartItemAddHandler = (item) =>{};
+    const CartItemRemoveHandler = (id) =>{
+        cartCtx.removeItem(id);
+    };
+    const cartItemAddHandler = (item) =>{
+        cartCtx.addItem({...item,amount:1})
+    };
     const cartItems = (
         <ul className={styles['cart-items']}>
             {
